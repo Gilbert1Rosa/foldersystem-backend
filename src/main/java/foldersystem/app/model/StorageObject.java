@@ -1,4 +1,4 @@
-package foldersystem.app.data;
+package foldersystem.app.model;
 
 import javax.persistence.*;
 
