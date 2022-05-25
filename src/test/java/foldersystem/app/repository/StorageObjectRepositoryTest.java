@@ -49,4 +49,10 @@ public class StorageObjectRepositoryTest {
         objs = repository.getChildren(4);
         assertThat(objs.get(0).getObjectName(), equalTo("testFolder"));
     }
+
+    @Test
+    public void getHashNameTest() {
+        String hashName = repository.getHashName(60);
+        assertThat(hashName, equalTo("5d33f886eb964f45a6ac9e3a15cef61b"));
+    }
 }

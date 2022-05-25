@@ -18,14 +18,15 @@ public interface StorageObjectRepository extends JpaRepository<StorageObject, In
     @Query(value = "SELECT * FROM Objects WHERE parent = ?1", nativeQuery = true)
     List<StorageObject> getChildren(int folderId);
 
-    @Modifying
+    @Query(value = "SELECT hashname FROM Objects WHERE id = ?1", nativeQuery = true)
+    String getHashName(int objectId);
+
     @Query(value = "CALL AddObject(:i_parent, :i_objectName, :i_objectType, :i_hashname);", nativeQuery = true)
     void addObject(@Param("i_parent") int parent,
                    @Param("i_objectName") String objectName,
                    @Param("i_objectType") int objectType,
                    @Param("i_hashname") String hashName);
 
-    @Modifying
     @Query(value = "CALL MoveObject(:objectid, :parentid);", nativeQuery = true)
     void moveObject(@Param("objectid") int objectId,
                     @Param("parentid") int parentId);
