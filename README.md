@@ -45,13 +45,24 @@ MySQL/MariaDB.
 
 ## Build
 
-To build the project execute:
+Configure gradle.properties file:
 
+<pre>
+    <code>
+        org.gradle.java.home=jdk-path
+    </code>
+</pre>
+
+<br>
+
+To build the project execute:
 <pre>
     <code>
         gradlew build -x test
     </code>
 </pre>
+
+
 
 ## Run
 
