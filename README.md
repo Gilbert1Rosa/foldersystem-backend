@@ -62,8 +62,6 @@ To build the project execute:
     </code>
 </pre>
 
-
-
 ## Run
 
 ### Windows

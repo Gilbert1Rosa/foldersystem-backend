@@ -20,8 +20,6 @@ import java.util.UUID;
 
 @RestController
 public class ObjectStorageController {
-    // private static final String BUCKET_NAME = "fileuser-bucket";
-
     @Value("${foldersystem.s3-bucket}")
     private String bucketName;
 
@@ -48,14 +46,6 @@ public class ObjectStorageController {
                     params.get("objectName").toString(),
                     type,
                     "");
-        } else if (type == 1) { // Is a file
-            String hashName = UUID.randomUUID().toString();
-            byte[] content = params.get("content").toString().getBytes();
-            repository.addObject((Integer) params.get("parent"),
-                    params.get("parent").toString(),
-                    type,
-                    hashName);
-            s3Service.uploadFileToS3(bucketName, hashName, content);
         }
         response.put("success", true);
         return response;

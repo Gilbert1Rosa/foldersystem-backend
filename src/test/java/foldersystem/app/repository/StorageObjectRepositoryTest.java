@@ -45,9 +45,11 @@ public class StorageObjectRepositoryTest {
     public void testMoveObject() {
         repository.addObject(2, "testFolder", 0, "");
         List<StorageObject> objs = repository.getChildren(2);
-        repository.moveObject(objs.get(0).getId(), 4);
+        StorageObject found = objs.stream().filter(obj -> obj.getObjectName().equals("testFolder")).findFirst().get();
+        repository.moveObject(found.getId(), 4);
         objs = repository.getChildren(4);
-        assertThat(objs.get(0).getObjectName(), equalTo("testFolder"));
+        found = objs.stream().filter(obj -> obj.getObjectName().equals("testFolder")).findFirst().get();
+        assertThat(found.getObjectName(), equalTo("testFolder"));
     }
 
     @Test
