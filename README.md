@@ -33,7 +33,7 @@ the sql scripts in this repo: https://github.com/Gilbert1Rosa/explorer-database.
 
 <br>
 
-The "foldersystem.s3-bucket" controls the S3 we will be using to store the files,
+The "foldersystem.s3-bucket" controls the S3 Bucket we will be using to store the files,
 you have to have previously configure your S3 bucket and your AWS account for this.
 
 <br>
@@ -42,6 +42,16 @@ Optionally, you can use "jdbc:mysql" in "spring.datasource.url" and
 and the JDBC MySQL driver for "spring.datasource.driver-class-name",
 it should also work fine with other DBMS, but it is not tested with other than 
 MySQL/MariaDB.
+
+## Build
+
+To build the project execute:
+
+<pre>
+    <code>
+        gradlew build -x test
+    </code>
+</pre>
 
 ## Run
 
